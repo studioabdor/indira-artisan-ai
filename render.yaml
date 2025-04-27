@@ -1,0 +1,52 @@
+services:
+  # Web Service (Frontend)
+  - type: web
+    name: indira-frontend
+    env: node
+    buildCommand: cd frontend && npm install && npm run build
+    startCommand: cd frontend && npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: VITE_API_URL
+        value: https://api.indira-ai.com
+
+  # API Service (Backend)
+  - type: web
+    name: indira-backend
+    env: python
+    buildCommand: cd backend && pip install -r requirements.txt
+    startCommand: cd backend && uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10.0
+      - key: ENVIRONMENT
+        value: production
+      - key: DEBUG
+        value: false
+      - key: USE_CUDA
+        value: false
+      - key: SD_MODEL_ID
+        sync: false
+      - key: AWS_ACCESS_KEY_ID
+        sync: false
+      - key: AWS_SECRET_ACCESS_KEY
+        sync: false
+      - key: AWS_REGION
+        value: ap-south-1
+      - key: REDIS_HOST
+        sync: false
+      - key: REDIS_PORT
+        sync: false
+      - key: ENABLE_CPU_OFFLOAD
+        value: "true"
+    disk:
+      name: model-cache
+      mountPath: /opt/render/project/src/model_cache
+      sizeGB: 50
+
+databases:
+  - name: indira-db
+    databaseName: indira
+    user: indira
+    plan: free 

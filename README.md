@@ -1,73 +1,126 @@
-# Welcome to your Lovable project
+# Indira Artisan AI - Indian Architectural Visualization Platform
 
-## Project info
+An AI-powered architectural visualization platform tailored to India's cultural, linguistic, and architectural diversity. This platform enables architects to generate designs reflecting traditional and modern Indian styles while supporting multilingual accessibility.
 
-**URL**: https://lovable.dev/projects/f18801c0-b7e5-41b4-97ee-20e4e7a78cf4
+## 🌟 Features
 
-## How can I edit this code?
+### Core Features (Phase 1)
+- **Sketch-to-Render Engine**
+  - Support for 10+ Indian architectural styles
+  - Traditional material rendering
+  - Real-time visualization
+- **Multilingual Support**
+  - Hindi, English, Tamil, and Bengali interfaces
+  - Architectural terminology in multiple languages
+- **Style Template Library**
+  - 50+ preloaded templates
+  - Regional architectural elements
+  - Traditional motifs and patterns
 
-There are several ways of editing your application.
+### Advanced Features (Phase 2)
+- BIM Export capabilities
+- Collaboration tools
+- Climate analysis integration
 
-**Use Lovable**
+## 🛠 Tech Stack
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/f18801c0-b7e5-41b4-97ee-20e4e7a78cf4) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
+### Frontend
+- React.js
+- Three.js
+- i18next (multilingual support)
 - Tailwind CSS
 
-## How can I deploy this project?
+### Backend
+- Python (FastAPI)
+- PostgreSQL
+- Redis (caching)
 
-Simply open [Lovable](https://lovable.dev/projects/f18801c0-b7e5-41b4-97ee-20e4e7a78cf4) and click on Share -> Publish.
+### AI/ML
+- PyTorch
+- Stable Diffusion (fine-tuned)
+- IndicBERT (NLP)
 
-## Can I connect a custom domain to my Lovable project?
+### Infrastructure
+- AWS EC2/S3
+- Kubernetes
+- Docker
 
-Yes, you can!
+## 🚀 Getting Started
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+### Prerequisites
+- Node.js (v18 or higher)
+- Python 3.9+
+- Docker
+- AWS CLI (for deployment)
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+### Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/your-org/indira-artisan-ai.git
+cd indira-artisan-ai
+```
+
+2. Install frontend dependencies:
+```bash
+npm install
+```
+
+3. Install backend dependencies:
+```bash
+cd backend
+pip install -r requirements.txt
+```
+
+4. Set up environment variables:
+```bash
+cp .env.example .env
+# Edit .env with your configuration
+```
+
+5. Start the development servers:
+```bash
+# Frontend
+npm run dev
+
+# Backend
+cd backend
+uvicorn main:app --reload
+```
+
+## 📚 Documentation
+
+- [API Documentation](./docs/api.md)
+- [Style Guide](./docs/style-guide.md)
+- [Localization Handbook](./docs/localization.md)
+- [Architecture Guide](./docs/architecture.md)
+
+## 🤝 Contributing
+
+Please read [CONTRIBUTING.md](./CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE.md](./LICENSE.md) file for details.
+
+## 🙏 Acknowledgments
+
+- Indian architectural heritage and traditions
+- Open source community
+- Contributors and maintainers
+
+## 📞 Support
+
+For support, email support@indiraartisan.ai or join our Slack channel.
+
+## 📁 Data Structure
+
+```
+data/
+└── training/
+    ├── Mughal/
+    ├── Dravidian/
+    ├── Rajput/
+    ├── Bengal/
+    └── metadata.json
+```

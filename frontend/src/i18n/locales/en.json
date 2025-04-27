@@ -1,0 +1,92 @@
+{
+    "common": {
+        "welcome": "Welcome to Indira Artisan AI",
+        "login": "Login",
+        "signup": "Sign Up",
+        "logout": "Logout",
+        "profile": "Profile",
+        "settings": "Settings",
+        "projects": "Projects",
+        "newProject": "New Project",
+        "save": "Save",
+        "create": "Create",
+        "cancel": "Cancel",
+        "delete": "Delete",
+        "edit": "Edit",
+        "tryAgain": "Try Again"
+    },
+    "auth": {
+        "loginTitle": "Sign in to your account",
+        "signupTitle": "Create a new account",
+        "email": "Email address",
+        "password": "Password",
+        "confirmPassword": "Confirm password",
+        "name": "Full name",
+        "loggingIn": "Signing in...",
+        "signingUp": "Creating account...",
+        "noAccount": "Don't have an account? Sign up",
+        "haveAccount": "Already have an account? Sign in"
+    },
+    "home": {
+        "title": "Transform Your Architectural Vision",
+        "subtitle": "AI-powered architectural visualization platform for Indian designs",
+        "getStarted": "Get Started",
+        "learnMore": "Learn More"
+    },
+    "styles": {
+        "Mughal": "Mughal Architecture",
+        "Dravidian": "Dravidian Architecture",
+        "Rajput": "Rajput Architecture",
+        "Bengal": "Bengal Architecture",
+        "Modern": "Modern Indian",
+        "Contemporary": "Contemporary",
+        "Indo-Saracenic": "Indo-Saracenic",
+        "Buddhist": "Buddhist Architecture",
+        "Temple": "Temple Architecture",
+        "Colonial": "Colonial Architecture"
+    },
+    "generator": {
+        "title": "AI Design Generator",
+        "promptLabel": "Describe your architectural vision",
+        "styleLabel": "Select architectural style",
+        "generate": "Generate Design",
+        "regenerate": "Regenerate",
+        "download": "Download",
+        "share": "Share",
+        "generating": "Generating..."
+    },
+    "sketch": {
+        "title": "Sketch Upload",
+        "dropHere": "Drop your sketch here",
+        "dragAndDrop": "Drag and drop your sketch here, or click to select",
+        "supportedFormats": "Supports PNG, JPG, JPEG, and SVG files",
+        "uploading": "Uploading your sketch...",
+        "selectStyle": "Select Architectural Style",
+        "visualize": "Visualize in 3D",
+        "processing": "Processing your sketch...",
+        "error": "Error processing sketch",
+        "success": "Sketch processed successfully"
+    },
+    "projects": {
+        "title": "My Projects",
+        "create": "New Project",
+        "edit": "Edit Project",
+        "name": "Project Name",
+        "description": "Description",
+        "style": "Architectural Style",
+        "deleteConfirmation": "Are you sure you want to delete this project?",
+        "noProjects": "No projects yet. Create your first project!"
+    },
+    "gallery": {
+        "title": "Design Gallery",
+        "noDesigns": "No designs generated yet",
+        "download": "Download Design",
+        "share": "Share Design",
+        "downloadSuccess": "Design downloaded successfully",
+        "downloadError": "Failed to download design",
+        "shareSuccess": "Design shared successfully",
+        "shareError": "Failed to share design",
+        "copyLink": "Copy Link",
+        "linkCopied": "Link copied to clipboard"
+    }
+} 

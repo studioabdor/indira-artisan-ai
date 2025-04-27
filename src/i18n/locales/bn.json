@@ -1,0 +1,102 @@
+{
+  "common": {
+    "loading": "লোড হচ্ছে...",
+    "error": "একটি ত্রুটি ঘটেছে",
+    "save": "সংরক্ষণ",
+    "cancel": "বাতিল",
+    "back": "পিছনে",
+    "edit": "সম্পাদনা",
+    "delete": "মুছে ফেলুন",
+    "search": "অনুসন্ধান",
+    "filter": "ফিল্টার",
+    "all": "সব",
+    "view": "দেখুন",
+    "create": "তৈরি করুন",
+    "update": "আপডেট"
+  },
+  "architecturalStyles": {
+    "title": "স্থাপত্য শৈলী",
+    "create": "স্থাপত্য শৈলী তৈরি করুন",
+    "edit": "স্থাপত্য শৈলী সম্পাদনা করুন",
+    "details": "স্থাপত্য শৈলী বিবরণ",
+    "notFound": "শৈলী পাওয়া যায়নি",
+    "searchPlaceholder": "স্থাপত্য শৈলী অনুসন্ধান করুন...",
+    "selectRegion": "অঞ্চল নির্বাচন করুন",
+    "allRegions": "সকল অঞ্চল",
+    "regions": {
+      "northIndia": "উত্তর ভারত",
+      "southIndia": "দক্ষিণ ভারত",
+      "eastIndia": "পূর্ব ভারত",
+      "westIndia": "পশ্চিম ভারত",
+      "centralIndia": "মধ্য ভারত",
+      "northeastIndia": "উত্তর-পূর্ব ভারত"
+    },
+    "fields": {
+      "name": "নাম",
+      "description": "বিবরণ",
+      "region": "অঞ্চল",
+      "features": "বৈশিষ্ট্য",
+      "materials": "উপকরণ",
+      "examples": "উদাহরণ",
+      "gallery": "গ্যালারি",
+      "metadata": "অতিরিক্ত তথ্য"
+    },
+    "features": {
+      "title": "প্রধান বৈশিষ্ট্য",
+      "add": "বৈশিষ্ট্য যোগ করুন",
+      "remove": "বৈশিষ্ট্য সরান"
+    },
+    "materials": {
+      "title": "উপকরণ",
+      "add": "উপকরণ যোগ করুন",
+      "remove": "উপকরণ সরান"
+    },
+    "examples": {
+      "title": "উল্লেখযোগ্য উদাহরণ",
+      "add": "উদাহরণ যোগ করুন",
+      "remove": "উদাহরণ সরান"
+    },
+    "gallery": {
+      "title": "ছবির গ্যালারি",
+      "upload": "ছবি আপলোড করুন",
+      "remove": "ছবি সরান",
+      "preview": "ছবি প্রিভিউ"
+    },
+    "validation": {
+      "nameRequired": "নাম প্রয়োজন",
+      "descriptionRequired": "বিবরণ প্রয়োজন",
+      "regionRequired": "অঞ্চল প্রয়োজন",
+      "featuresRequired": "কমপক্ষে একটি বৈশিষ্ট্য প্রয়োজন",
+      "materialsRequired": "কমপক্ষে একটি উপকরণ প্রয়োজন",
+      "examplesRequired": "কমপক্ষে একটি উদাহরণ প্রয়োজন",
+      "imagesRequired": "কমপক্ষে একটি ছবি প্রয়োজন"
+    },
+    "messages": {
+      "createSuccess": "স্থাপত্য শৈলী সফলভাবে তৈরি করা হয়েছে",
+      "updateSuccess": "স্থাপত্য শৈলী সফলভাবে আপডেট করা হয়েছে",
+      "deleteSuccess": "স্থাপত্য শৈলী সফলভাবে মুছে ফেলা হয়েছে",
+      "deleteConfirm": "আপনি কি এই স্থাপত্য শৈলী মুছে ফেলতে চান?",
+      "error": {
+        "create": "স্থাপত্য শৈলী তৈরি করতে ত্রুটি",
+        "update": "স্থাপত্য শৈলী আপডেট করতে ত্রুটি",
+        "delete": "স্থাপত্য শৈলী মুছে ফেলতে ত্রুটি",
+        "fetch": "স্থাপত্য শৈলী আনতে ত্রুটি",
+        "fetchOne": "স্থাপত্য শৈলী বিবরণ আনতে ত্রুটি"
+      }
+    }
+  },
+  "navigation": {
+    "home": "হোম",
+    "styles": "স্থাপত্য শৈলী",
+    "create": "নতুন তৈরি করুন",
+    "profile": "প্রোফাইল",
+    "settings": "সেটিংস"
+  },
+  "auth": {
+    "login": "লগইন",
+    "logout": "লগআউট",
+    "register": "রেজিস্টার",
+    "forgotPassword": "পাসওয়ার্ড ভুলে গেছেন",
+    "resetPassword": "পাসওয়ার্ড রিসেট"
+  }
+} 
