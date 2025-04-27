@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,12 +62,28 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				// Custom colors for Indira platform
+				indira: {
+					'terracotta': '#C66E4E',
+					'sandstone': '#E8A87C',
+					'mustard': '#E6B325',
+					'blue': '#1A5F7A',
+					'navy': '#0B3954',
+					'cream': '#F9F4E3',
+					'sage': '#8A9A5B',
+					'maroon': '#952E3F',
+					'gold': '#D4AF37'
 				}
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
+			},
+			fontFamily: {
+				'serif': ['Playfair Display', 'serif'],
+				'sans': ['Poppins', 'sans-serif'],
 			},
 			keyframes: {
 				'accordion-down': {
@@ -84,11 +101,34 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'pulse-ring': {
+					'0%': { 
+						transform: 'scale(0.8)',
+						opacity: '0' 
+					},
+					'50%': { 
+						opacity: '0.5'
+					},
+					'100%': { 
+						transform: 'scale(1.2)',
+						opacity: '0'
+					}
+				},
+				'rotate-mandala': {
+					'0%': { 
+						transform: 'rotate(0deg)' 
+					},
+					'100%': { 
+						transform: 'rotate(360deg)' 
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'pulse-ring': 'pulse-ring 1.5s cubic-bezier(0.24, 0, 0.38, 1) infinite',
+				'rotate-mandala': 'rotate-mandala 10s linear infinite'
 			}
 		}
 	},
