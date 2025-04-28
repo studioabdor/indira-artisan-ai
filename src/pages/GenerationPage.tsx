@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { SketchCanvas } from '../components/SketchCanvas';
-import { StyleSelector, ArchitecturalStyle } from '../components/StyleSelector';
+import { StyleSelector } from '../components/StyleSelector';
 import { generateFromSketch, SketchGenerationParams } from '../lib/api';
 import { useTranslation } from 'react-i18next';
 
@@ -125,4 +125,4 @@ export const GenerationPage: React.FC = () => {
       )}
     </div>
   );
-}; 
+};
