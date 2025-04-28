@@ -58,3 +58,25 @@ logs/
 # Local development
 *.sqlite3
 *.db
+
+# PostgreSQL
+POSTGRES_SERVER=localhost
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=<your-secure-password>
+POSTGRES_DB=indira
+
+# First superuser
+FIRST_SUPERUSER=admin@indira.ai
+FIRST_SUPERUSER_PASSWORD=<your-secure-password>
+
+# Email
+SMTP_TLS=True
+SMTP_PORT=587
+SMTP_HOST=smtp.gmail.com
+SMTP_USER=<your-email>
+SMTP_PASSWORD=<your-app-specific-password>
+EMAILS_FROM_EMAIL=<your-email>
+EMAILS_FROM_NAME=Indira AI
+
+# CORS
+BACKEND_CORS_ORIGINS=["http://localhost:3000","http://localhost:8000"]
