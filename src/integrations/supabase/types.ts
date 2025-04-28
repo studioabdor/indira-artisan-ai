@@ -9,7 +9,93 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      [_ in never]: never
+      architectural_styles: {
+        Row: {
+          created_at: string
+          description: string | null
+          example_image_url: string | null
+          id: string
+          name: string
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          example_image_url?: string | null
+          id?: string
+          name: string
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          example_image_url?: string | null
+          id?: string
+          name?: string
+        }
+        Relationships: []
+      }
+      design_generations: {
+        Row: {
+          architectural_style: string | null
+          created_at: string
+          feedback: string | null
+          generation_model: string
+          id: string
+          image_url: string | null
+          metadata: Json | null
+          prompt: string
+          status: string
+          user_id: string
+        }
+        Insert: {
+          architectural_style?: string | null
+          created_at?: string
+          feedback?: string | null
+          generation_model: string
+          id?: string
+          image_url?: string | null
+          metadata?: Json | null
+          prompt: string
+          status?: string
+          user_id: string
+        }
+        Update: {
+          architectural_style?: string | null
+          created_at?: string
+          feedback?: string | null
+          generation_model?: string
+          id?: string
+          image_url?: string | null
+          metadata?: Json | null
+          prompt?: string
+          status?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      user_profiles: {
+        Row: {
+          created_at: string
+          display_name: string | null
+          id: string
+          preferred_architectural_style: string | null
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          display_name?: string | null
+          id: string
+          preferred_architectural_style?: string | null
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          display_name?: string | null
+          id?: string
+          preferred_architectural_style?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
