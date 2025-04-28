@@ -15,7 +15,7 @@ const languages = [
 export default function Navbar() {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
-  const { user, logout } = useAuth();
+  const { user, logout, loading } = useAuth();
 
   const navigation = [
     { name: 'home', href: '/' },
@@ -38,6 +38,24 @@ export default function Navbar() {
     }
   };
 
+  if (loading) {
+    return (
+      <nav className="bg-white shadow">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex h-16 justify-between">
+            <div className="flex">
+              <div className="flex flex-shrink-0 items-center">
+                <Link to="/" className="text-2xl font-bold text-indigo-600">
+                  Indira AI
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    );
+  }
+
   return (
     <Disclosure as="nav" className="bg-white shadow">
       {({ open }) => (
@@ -57,16 +75,16 @@ export default function Navbar() {
                       to={item.href}
                       className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
                     >
-                      {t(`common.${item.name}`)}
+                      {t(`nav.${item.name}`)}
                     </Link>
                   ))}
                 </div>
               </div>
-              <div className="hidden sm:ml-6 sm:flex sm:items-center space-x-4">
-                <Menu as="div" className="relative">
+              <div className="flex items-center">
+                <Menu as="div" className="relative ml-3">
                   <Menu.Button className="flex rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
-                    <span className="sr-only">Open language menu</span>
-                    <span className="px-3 py-2">{i18n.language.toUpperCase()}</span>
+                    <span className="sr-only">Change language</span>
+                    <span className="text-gray-700">{languages.find(lang => lang.code === i18n.language)?.name || 'English'}</span>
                   </Menu.Button>
                   <Transition
                     as={Fragment}
@@ -78,16 +96,16 @@ export default function Navbar() {
                     leaveTo="transform opacity-0 scale-95"
                   >
                     <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                      {languages.map((lang) => (
-                        <Menu.Item key={lang.code}>
+                      {languages.map((language) => (
+                        <Menu.Item key={language.code}>
                           {({ active }) => (
                             <button
-                              onClick={() => changeLanguage(lang.code)}
+                              onClick={() => changeLanguage(language.code)}
                               className={`${
                                 active ? 'bg-gray-100' : ''
                               } block w-full px-4 py-2 text-left text-sm text-gray-700`}
                             >
-                              {lang.name}
+                              {language.name}
                             </button>
                           )}
                         </Menu.Item>
@@ -97,7 +115,7 @@ export default function Navbar() {
                 </Menu>
 
                 {user ? (
-                  <Menu as="div" className="relative">
+                  <Menu as="div" className="relative ml-3">
                     <Menu.Button className="flex rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
                       <span className="sr-only">Open user menu</span>
                       <UserCircleIcon className="h-8 w-8 text-gray-400" />
@@ -148,10 +166,10 @@ export default function Navbar() {
                       {t('common.login')}
                     </Link>
                     <Link
-                      to="/signup"
-                      className="bg-indigo-600 text-white hover:bg-indigo-500 px-3 py-2 rounded-md text-sm font-medium"
+                      to="/register"
+                      className="text-gray-500 hover:text-gray-700 px-3 py-2 text-sm font-medium"
                     >
-                      {t('common.signup')}
+                      {t('common.register')}
                     </Link>
                   </div>
                 )}
@@ -177,7 +195,7 @@ export default function Navbar() {
                   to={item.href}
                   className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700"
                 >
-                  {t(`common.${item.name}`)}
+                  {t(`nav.${item.name}`)}
                 </Link>
               ))}
               {!user && (
@@ -189,10 +207,10 @@ export default function Navbar() {
                     {t('common.login')}
                   </Link>
                   <Link
-                    to="/signup"
+                    to="/register"
                     className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700"
                   >
-                    {t('common.signup')}
+                    {t('common.register')}
                   </Link>
                 </>
               )}

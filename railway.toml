@@ -1,0 +1,38 @@
+[build]
+builder = "nixpacks"
+buildCommand = "cd backend && pip install -r requirements.txt"
+
+[deploy]
+startCommand = "cd backend && uvicorn app.main:app --host 0.0.0.0 --port $PORT"
+healthcheckPath = "/health"
+healthcheckTimeout = 100
+restartPolicyType = "on_failure"
+restartPolicyMaxRetries = 10
+
+[deploy.env]
+PYTHON_VERSION = "3.11"
+ENVIRONMENT = "production"
+DEBUG = "false"
+USE_CUDA = "false"
+ENABLE_CPU_OFFLOAD = "true"
+AWS_REGION = "ap-south-1"
+
+[[services]]
+name = "indira-backend"
+envs = [
+  "DATABASE_URL",
+  "REDIS_URL",
+  "AWS_ACCESS_KEY_ID",
+  "AWS_SECRET_ACCESS_KEY",
+  "AWS_BUCKET_NAME",
+  "HUGGINGFACE_API_KEY",
+  "JWT_SECRET"
+]
+
+[[services]]
+name = "indira-frontend"
+buildCommand = "cd frontend && npm install && npm run build"
+startCommand = "cd frontend && npm start"
+envs = [
+  "VITE_API_URL"
+] 

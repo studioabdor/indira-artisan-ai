@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useNavigate, Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { useAuth } from '../contexts/AuthContext';
@@ -7,7 +7,8 @@ import { useAuth } from '../contexts/AuthContext';
 export default function Signup() {
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const { signup } = useAuth();
+  const location = useLocation();
+  const { signup, user } = useAuth();
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -16,20 +17,29 @@ export default function Signup() {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
+  // Redirect if already logged in
+  useEffect(() => {
+    if (user) {
+      const from = (location.state as any)?.from?.pathname || '/projects';
+      navigate(from, { replace: true });
+    }
+  }, [user, navigate, location]);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
+    
     if (password !== confirmPassword) {
-      return setError('Passwords do not match');
+      setError('Passwords do not match');
+      return;
     }
 
     try {
       setError('');
       setLoading(true);
       await signup(name, email, password);
-      navigate('/projects');
-    } catch (error) {
-      setError('Failed to create an account');
+      // Navigation will be handled by the useEffect above
+    } catch (error: any) {
+      setError(error.response?.data?.detail || 'Failed to create an account');
     } finally {
       setLoading(false);
     }
@@ -57,17 +67,18 @@ export default function Signup() {
           <div className="rounded-md shadow-sm -space-y-px">
             <div>
               <label htmlFor="name" className="sr-only">
-                {t('auth.name')}
+                {t('auth.fullName')}
               </label>
               <input
                 id="name"
                 name="name"
                 type="text"
+                autoComplete="name"
                 required
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                placeholder={t('auth.name')}
+                placeholder={t('auth.fullName')}
               />
             </div>
             <div>

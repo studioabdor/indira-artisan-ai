@@ -26,6 +26,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       setUser(user);
     } catch (error) {
       console.error('Auth check failed:', error);
+      setUser(null);
     } finally {
       setLoading(false);
     }
@@ -57,7 +58,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       setUser(null);
     } catch (error) {
       console.error('Logout failed:', error);
-      throw error;
+      // Still clear the user state even if the API call fails
+      setUser(null);
     }
   };
 

@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useNavigate, Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { useAuth } from '../contexts/AuthContext';
@@ -7,12 +7,21 @@ import { useAuth } from '../contexts/AuthContext';
 export default function Login() {
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const { login } = useAuth();
+  const location = useLocation();
+  const { login, user } = useAuth();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+
+  // Redirect if already logged in
+  useEffect(() => {
+    if (user) {
+      const from = (location.state as any)?.from?.pathname || '/projects';
+      navigate(from, { replace: true });
+    }
+  }, [user, navigate, location]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -20,9 +29,9 @@ export default function Login() {
       setError('');
       setLoading(true);
       await login(email, password);
-      navigate('/projects');
-    } catch (error) {
-      setError('Failed to login. Please check your credentials.');
+      // Navigation will be handled by the useEffect above
+    } catch (error: any) {
+      setError(error.response?.data?.detail || 'Failed to login. Please check your credentials.');
     } finally {
       setLoading(false);
     }

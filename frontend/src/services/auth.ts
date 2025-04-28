@@ -66,15 +66,15 @@ class AuthService {
     return userStr ? JSON.parse(userStr) : null;
   }
 
-  private static setToken(token: string): void {
+  static setToken(token: string): void {
     localStorage.setItem(this.TOKEN_KEY, token);
   }
 
-  private static setUser(user: User): void {
+  static setUser(user: User): void {
     localStorage.setItem(this.USER_KEY, JSON.stringify(user));
   }
 
-  private static clearAuth(): void {
+  static clearAuth(): void {
     localStorage.removeItem(this.TOKEN_KEY);
     localStorage.removeItem(this.USER_KEY);
   }
